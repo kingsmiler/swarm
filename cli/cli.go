@@ -11,11 +11,16 @@ import (
 	"github.com/docker/swarm/version"
 )
 
-// Run the Swarm CLI.
+// Swarm 命令入口.
 func Run() {
 	app := cli.NewApp()
+
+	// 得到启动的程序名称,默认为swarm.
 	app.Name = path.Base(os.Args[0])
+
 	app.Usage = "A Docker-native clustering system"
+
+	// 从文件中读取版本信息
 	app.Version = version.VERSION + " (" + version.GITCOMMIT + ")"
 
 	app.Author = ""
